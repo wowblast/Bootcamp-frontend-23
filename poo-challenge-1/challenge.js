@@ -1,6 +1,6 @@
 class Pokemon {
     _name = '';
-    _type = '';
+    _type = '';l
     _evolution = 1;
     constructor(name, type, evolution) {
         this._name = name;
