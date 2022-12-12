@@ -3,13 +3,26 @@ let arr1 = [12,6,10,2,45,100]
 console.log("R1")
 console.log(arr1.reduce((minor,number)=> minor> number ? number:minor,arr1[0]))
 //Write a JS program to find the least frequent item of an array.
-let arr2=[3, 'c', 'c', 'a', 2, 3, 'c', 3,'c', 2, 4, 9, 9];
+let arr2=[3, 'c', 'c', 'a', 2, 3, 'c', 3,'c', 2,4, 9,9];
 
 counter= {}
 arr2.reduce((list,item)=> setCounter(counter, item),{} )
 console.log("R2")
+lestFrecuent = []
+console.log(Object.keys(counter).reduce((lastt,key)=> getLessFrecuent(lastt,key) ,[Object.keys(counter)[0]]))
 
-console.log(Object.keys(counter).reduce((last,key)=> counter[last] > counter[key]? last = key:last,Object.keys(counter)[0]))
+function getLessFrecuent(lastt,key) {
+  if(counter[lastt[0]] === counter[key] && key != lastt[0]   ) {
+    lastt.push(key)
+  } 
+  if ( counter[lastt[0]] > counter[key]) {
+    lastt = []
+    lastt.push(key)
+  }
+  
+
+  return lastt
+}
 function setCounter(list, item) {
   if(!list[item]) {
     list[item] = 1
