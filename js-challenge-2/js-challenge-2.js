@@ -8,7 +8,7 @@ let arr2=[3, 'c', 'c', 'a', 2, 3, 'c', 3,'c', 2,4, 9,9];
 counter= {}
 arr2.reduce((list,item)=> setCounter(counter, item),{} )
 console.log("R2")
-lestFrecuent = []
+//lestFrecuent = []
 console.log(Object.keys(counter).reduce((lastt,key)=> getLessFrecuent(lastt,key) ,[Object.keys(counter)[0]]))
 
 function getLessFrecuent(lastt,key) {
@@ -35,15 +35,14 @@ function setCounter(list, item) {
 let arr3 = [7, 9, 1, 'a', 'a', 'f', 9 , 4,2, 'd', 'd']
 console.log("R3")
 
-console.log(arr3.reduce((lastt,item)=>isDuplicated(lastt,item),[]))
+console.log(arr3.reduce(isDuplicated,[]))
 
 function isDuplicated(lastt,item) {
-  if(lastt.includes(item)){
-    return lastt
-  } else {
-    lastt.push(item)
-    return lastt
+  if(!lastt.includes(item)){
+    lastt.push(item)   
   }
+  return lastt
+
 }
 //Write a JS program to concat arrays.
 let data = [["The", "little", "horse"],["Plane", "over", "the", "ocean"],["Chocolate", "ice", "cream", "is", "awesome"],["this", "is", "a", "long", "sentence"]]
