@@ -1,7 +1,7 @@
  function delay (ms) {
-    let promise =   New Promise(resolve => {
+  return new Promise(resolve => {
 setTimeout(()=> resolve(console.log("done")),ms)
     });
 }
 
-delay(3000).then(()=> alert('run after 3 s'))
+delay(3000).then(()=> console.log('run after 3 s'))
