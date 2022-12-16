@@ -8,7 +8,7 @@ this.response = response;
 async function loadJson(url) {
 return await new Promise((resolve, reject) => fetch(url)
 .then(response => {
-    console.log("response",response.json())
+    //console.log("response",response.json())
 if (response.status == 200) {
 resolve(response.json())
 } else {
@@ -18,14 +18,14 @@ resolve(response.json())
 }
 
 async function demoGithubUser() {
-let name = prompt("Enter a name?", "vanimar");
+let name = "vanimar"
 return await loadJson(`https://api.github.com/users/${name}`).then(user => {
-alert(`Full name: ${user.name}.`);
+console.log(`Full name: ${user.name}.`);
 return user;
 })
 .catch(err => {
 if (err instanceof HttpError && err.response.status == 404) {
-alert("No such user, please reenter.");
+console.log("No such user, please reenter.");
 return demoGithubUser();
 } else {
 throw err;
