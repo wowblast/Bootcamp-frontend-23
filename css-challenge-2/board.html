@@ -8,6 +8,7 @@
         grid-template-rows: 16% 16% 16% 16% 16% 16%;
         justify-items: stretch;
         justify-content: stretch;
+        align-items: stretch;
       }
 
       .pos2_1 {
@@ -105,6 +106,8 @@
         height: 100%;
         justify-content: center;
         align-content: center;
+        justify-items: stretch;
+        align-items: stretch;
       }
 
       .innerb2 {
@@ -118,6 +121,8 @@
         height: 100%;
         justify-content: center;
         align-content: center;
+        justify-items: stretch;
+        align-items: stretch;
       }
       header {
         display: flex;
@@ -137,8 +142,7 @@
         border-color: rgb(166, 167, 166);
         background-color: rgba(192, 152, 126, 0.973);
         flex-direction: column;
-        justify-content:space-around;
-        flex-wrap: wrap;
+        justify-content: space-between;
       }
       .title {
         overflow: hidden;
@@ -153,9 +157,8 @@
         display: -webkit-box;
         -webkit-line-clamp: 1;
         overflow: hidden;
-        font-size: 1px;
+        font-size: 2px;
         text-overflow: ellipsis;
-
       }
       .startFlex {
         display: flex;
@@ -250,30 +253,36 @@
         <img src="boardesp.PNG" />
         <img src="boardesp.PNG" />
         <img src="boardesp.PNG" />
-            <div class="card-body">
-              <div class="title"><div class="ttext"> maga oscura</div></div>
-              <div class="startFlex">
-                <div class="ttext">*****</div>
+        <div class="list">
+          <div class="card-body">
+            <div class="title"><div class="ttext">maga oscura</div></div>
+            <div class="startFlex">
+              <div class="ttext">*****</div>
+            </div>
+            <div class="mainImg"><img class="imgcard" src="carta1.PNG" /></div>
+            <div class="maintext">
+              <b style="font-style: bold"
+                ><div class="ttext">[LANZADOR DE CONJUROS/EFECTO]</div></b
+              >
+              <div class="ttext">
+                Gana 300 ATK por cada "Mago oscuro" o "Mago del caos Negro" en
+                el cementerio
               </div>
-              <div class="mainImg"><img class="imgcard" src="carta1.PNG" /></div>
-              <div class="maintext">
-                <b style="font-style: bold"><div class="ttext">[LANZADOR DE CONJUROS/EFECTO] </b>
-                <div class="ttext">
-                  Gana 300 ATK por cada "Mago oscuro" o "Mago del caos Negro" en el
-                  cementerio
-                </div>
-                <div class="attacktext"><div class="ttext">ATK/2000 DEF/1700</div></div>
-              </div>
-              <div class="foot">
-                <div class="ttext">38033121 1a edicion</div>
-                  <div class="ttext">@1996 KAZUKI TAKAHASHI</div>
+              <div class="attacktext">
+                <div class="ttext">ATK/2000 DEF/1700</div>
               </div>
             </div>
+            <div class="foot">
+              <div class="ttext">38033121 1a edicion</div>
+              <div class="ttext">@1996 KAZUKI TAKAHASHI</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </head>
 
-<!--  <div class="list">
+  <!--  <div class="list">
     <div class="card-body">
       <div class="title">Chica maga oscura</div>
       <div class="startFlex">
