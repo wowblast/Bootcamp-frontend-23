@@ -1,206 +1,301 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<style>
+  <head>
+    <style>
+      .board {
+        display: grid;
+        grid-template-columns: 10% 10% 50% 10% 10%;
+        grid-template-rows: 16% 16% 16% 16% 16% 16%;
+        justify-items: stretch;
+        justify-content: stretch;
+      }
 
-.board {
-  display: grid;
-  grid-template-columns: 10% 10% 50% 10% 10%;
-  grid-template-rows: 16% 16% 16% 16% 16% 16%;
-  justify-items: center;
-  height: 100%;
+      .pos2_1 {
+        grid-column: 2;
+        grid-row: 1;
+        height: 100%;
+        justify-self: start;
+      }
 
-}
+      .pos2_2 {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+      }
 
-.pos2_1 {
-    grid-column: 2;
-    grid-row: 1;  
-    height: 100%; 
-    justify-self: start
-   
-}
+      .pos2_3 {
+        grid-column: 2;
+        grid-row: 3;
+        justify-self: start;
+      }
 
-.pos2_2 {
-    grid-column: 2;
-    grid-row: 2;   
-    justify-self: start
+      .pos2_4 {
+        grid-column: 2;
+        grid-row: 4;
+        justify-self: start;
+      }
 
-}
+      .pos2_5 {
+        grid-column: 2;
+        grid-row: 5;
+        justify-self: start;
+      }
+      .pos2_6 {
+        grid-column: 2;
+        grid-row: 6;
+        justify-self: start;
+      }
 
-.pos2_3 {
-    grid-column: 2;
-    grid-row: 3;   
-    justify-self: start
+      .pos1_3 {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: end;
+      }
 
-}
+      .pos4_1 {
+        grid-column: 4;
+        grid-row: 1;
+        height: 100%;
+        justify-self: end;
+      }
 
-.pos2_4 {
-    grid-column: 2;
-    grid-row: 4;   
-    justify-self: start
+      .pos4_2 {
+        grid-column: 4;
+        grid-row: 2;
+        justify-self: end;
+      }
 
-}
+      .pos4_3 {
+        grid-column: 4;
+        grid-row: 3;
+        justify-self: end;
+      }
 
-.pos2_5 {
-    grid-column: 2;
-    grid-row: 5;   
-    justify-self: start
+      .pos4_4 {
+        grid-column: 4;
+        grid-row: 4;
+        justify-self: end;
+      }
 
-}
-.pos2_6 {
-    grid-column: 2;
-    grid-row: 6;   
-    justify-self: start
+      .pos4_5 {
+        grid-column: 4;
+        grid-row: 5;
+        justify-self: end;
+      }
+      .pos4_6 {
+        grid-column: 4;
+        grid-row: 6;
+        justify-self: end;
+      }
 
-}
+      .pos5_3 {
+        grid-column: 5;
+        grid-row: 3;
+        justify-self: start;
+      }
 
-.pos1_3 {
-    grid-column: 1;
-    grid-row: 3;   
-    justify-self: end
+      .innerb {
+        display: grid;
+        grid-column: 3 3;
+        grid-row: 1 / 4;
+        grid-template-columns: 9% 9% 9% 9% 9%;
+        grid-template-rows: 40% 40%;
+        gap: 5%;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+      }
 
-}
+      .innerb2 {
+        display: grid;
+        grid-column: 3;
+        grid-row: 4 / 7;
+        grid-template-columns: 9% 9% 9% 9% 9%;
+        grid-template-rows: 40% 40%;
+        gap: 5%;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+      }
+      header {
+        display: flex;
+        background-color: rgb(216, 144, 50);
+        justify-content: center;
+      }
 
-.pos4_1 {
-    grid-column: 4;
-    grid-row: 1;  
-    height: 100%; 
-    justify-self: end
-   
-}
+      .list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .card-body {
+        display: flex;
 
-.pos4_2 {
-    grid-column: 4;
-    grid-row: 2;   
-    justify-self: end
+        border-style: solid;
+        border-color: rgb(166, 167, 166);
+        background-color: rgba(192, 152, 126, 0.973);
+        flex-direction: column;
+        justify-content:space-around;
+        flex-wrap: wrap;
+      }
+      .title {
+        overflow: hidden;
+        border-style: solid;
+        -webkit-line-clamp: 1;
 
-}
+        border-color: rgb(211, 211, 211);
+        display: flex;
+        margin: 3px;
+      }
+      .ttext {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        font-size: 1px;
+        text-overflow: ellipsis;
 
-.pos4_3 {
-    grid-column: 4;
-    grid-row: 3;   
-    justify-self: end
+      }
+      .startFlex {
+        display: flex;
+        justify-content: space-around;
+        justify-content: flex-end;
+        margin: 10px;
+      }
 
-}
+      .starspace {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
 
-.pos4_4 {
-    grid-column: 4;
-    grid-row: 4;   
-    justify-self: end
+      .mainImg {
+        display: flex;
+        justify-content: flex-end;
+        border-style: solid;
+        border-color: gray;
+        border-width: medium;
+        width: 90%;
+        align-self: center;
+      }
+      .imgcard {
+        width: 100%;
+        justify-self: center;
+      }
 
-}
+      .maintext {
+        border-style: solid;
+        border-color: rgb(211, 73, 39);
+        margin: 10px;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
 
-.pos4_5 {
-    grid-column: 4;
-    grid-row: 5;   
-    justify-self: end
+      .attacktext {
+        display: flex;
+        justify-content: flex-end;
+      }
 
-}
-.pos4_6 {
-    grid-column: 4;
-    grid-row: 6;   
-    justify-self: end
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        font-size: small;
+      }
+    </style>
+    <header>
+         
+      <h1>CHALLENGE</h1>
+    </header>
 
-}
+    <div class="board">
+      <div class="pos2_1"><img src="circulo.PNG" /></div>
+      <div class="pos2_2"><img src="trianguloleft.PNG" /></div>
+      <div class="pos2_3"><img src="escudo.PNG" /></div>
+      <div class="pos2_4"><img src="estrella.PNG" /></div>
+      <div class="pos2_5"><img src="trianguloleft.PNG" /></div>
+      <div class="pos2_6"><img src="mar.PNG" /></div>
 
-.pos5_3 {
-    grid-column: 5;
-    grid-row: 3;   
-    justify-self: start
+      <div class="pos1_3"><img src="flecha1.PNG" /></div>
 
-}
+      <div class="pos4_1"><img src="mar.PNG" /></div>
+      <div class="pos4_2"><img src="trianguloright.PNG" /></div>
+      <div class="pos4_3"><img src="estrella.PNG" /></div>
+      <div class="pos4_4"><img src="escudo2.PNG" /></div>
+      <div class="pos4_5"><img src="trianguloright.PNG" /></div>
+      <div class="pos4_6"><img src="circulo2.PNG" /></div>
 
+      <div class="pos5_3"><img src="flecha2.PNG" /></div>
 
-img {
-    height: 100%;
+      <div class="innerb">
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+      </div>
 
-    
-}
-
-.innerb {
-    display: grid;
-    grid-column:3 3 ; 
-  grid-row: 1 / 4;
-    grid-template-columns: 9% 9% 9% 9% 9%;
-  grid-template-rows: 40% 40%;
-  gap: 5%;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-content: center;     
-   
-}
-
-.innerb2 {
-    display: grid;
-    grid-column: 3 ; 
-  grid-row: 4 / 7;
-    grid-template-columns: 9% 9% 9% 9% 9%;
-  grid-template-rows: 40% 40%;
-  gap: 5%;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-content: center;     
-   
-}
-
-
-
-</style>
-<div class="board">
-    <div class="pos2_1"><img src="circulo.PNG"></div>
-    <div class="pos2_2"><img src="trianguloleft.PNG"></div>
-    <div class="pos2_3"><img src="escudo.PNG"></div>
-    <div class="pos2_4"><img src="estrella.PNG"></div>
-    <div class="pos2_5"><img src="trianguloleft.PNG"></div>
-    <div class="pos2_6"><img src="mar.PNG"></div>
-
-    <div class="pos1_3"><img src="flecha1.PNG"></div>
-
-
-    <div class="pos4_1"><img src="mar.PNG"></div>
-    <div class="pos4_2"><img src="trianguloright.PNG"></div>
-    <div class="pos4_3"><img src="estrella.PNG"></div>
-    <div class="pos4_4"><img src="escudo2.PNG"></div>
-    <div class="pos4_5"><img src="trianguloright.PNG"></div>
-    <div class="pos4_6"><img src="circulo2.PNG"></div>
-
-    <div class="pos5_3"><img src="flecha2.PNG"></div>
-
-    <div class="innerb">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">        
-        <img src="boardesp.PNG">
-
+      <div class="innerb2">
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+        <img src="boardesp.PNG" />
+            <div class="card-body">
+              <div class="title"><div class="ttext"> maga oscura</div></div>
+              <div class="startFlex">
+                <div class="ttext">*****</div>
+              </div>
+              <div class="mainImg"><img class="imgcard" src="carta1.PNG" /></div>
+              <div class="maintext">
+                <b style="font-style: bold"><div class="ttext">[LANZADOR DE CONJUROS/EFECTO] </b>
+                <div class="ttext">
+                  Gana 300 ATK por cada "Mago oscuro" o "Mago del caos Negro" en el
+                  cementerio
+                </div>
+                <div class="attacktext"><div class="ttext">ATK/2000 DEF/1700</div></div>
+              </div>
+              <div class="foot">
+                <div class="ttext">38033121 1a edicion</div>
+                  <div class="ttext">@1996 KAZUKI TAKAHASHI</div>
+              </div>
+            </div>
+      </div>
     </div>
+  </head>
 
-    <div class="innerb2">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">
-        <img src="boardesp.PNG">        
-        <img src="boardesp.PNG">
-
+<!--  <div class="list">
+    <div class="card-body">
+      <div class="title">Chica maga oscura</div>
+      <div class="startFlex">
+        <p>*****</p>
+      </div>
+      <div class="mainImg"><img class="imgcard" src="carta1.PNG" /></div>
+      <div class="maintext">
+        <b style="font-style: bold">[LANZADOR DE CONJUROS/EFECTO] </b>
+        <p>
+          Gana 300 ATK por cada "Mago oscuro" o "Mago del caos Negro" en el
+          cementerio
+        </p>
+        <div class="attacktext">ATK/2000 DEF/1700</div>
+      </div>
+      <div class="foot">
+        <p>38033121 1a edicion</p>
+        <p>@1996 KAZUKI TAKAHASHI</p>
+      </div>
     </div>
+  </div>-->
 
-
-   
-</div>
-</head>
-
-
-
+  <footer>
+    <p>fotter</p>
+  </footer>
+</html>
