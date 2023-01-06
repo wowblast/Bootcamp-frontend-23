@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    .cnter {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    .normal {
+        display: flex;
+        align-items: center;
+    }
+    .short {
+      display: none;
+
+      visibility: hidden;
+    }
+
+    @media screen and (max-width: 868px) {
+      .short{
+        display: flex;
+        visibility: visible;
+        align-items: center;
+      }
+      .normal{
+        display: none;
+
+        visibility: hidden;
+      }
+    }
+
+    @media screen and (max-width: 568px) {
+      .short{
+        display: none;
+
+        visibility: hidden;
+      }
+      .normal {
+        display: none;
+
+        visibility: hidden;
+      }
+    }
+  </style>
+  <body>
+    <div class="cnter">
+      <img class="iconn" src="user.png" alt="" width="50px" height="50px" />
+      <label class="normal">insert your user name</label>
+      <label class="short">user name</label>
+
+      <input type="text"  />
+    </div>
+  </body>
+</html>
