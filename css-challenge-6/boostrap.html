@@ -10,20 +10,24 @@
     <script src="main.js"></script>
 
   </head>
-  <body class="p-3 m-0 border-0 bd-example bd-example-row">
-
-   
-    <div class="container text-center">
+  <style>
+    .test {
+  background-color:rgb(42, 178, 231)
+}
+    
+  </style>
+  <body class="p-3 m-0 border-0  bd-example-row">   
+    <div class="container text-center test">
       <div class="row">
+        <label  class="form-label">Form application</label>
+
         <div class="col">
-          <div class="mb-3">
             <label for="emailInput" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" onclick="emailDirecctionHelp()">
-          </div>
-          <div class="mb-3">
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" onmouseover="emailDirecctionHelp()">
             <label for="description" class="form-label">Why do you want to apply?</label>
-            <textarea class="form-control" id="description" rows="3" onclick="emailDescriptionHelp()""></textarea>
-          </div>
+            <textarea class="form-control" id="description" rows="3" onmouseover="emailDescriptionHelp()""></textarea>
+            <button onmouseover="buttonHelp()" type="button" class="btn btn-success">Success</button>
+
         </div>
         <div class="col">
           Help
