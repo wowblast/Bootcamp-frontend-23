@@ -1,24 +1,20 @@
 function checkPowerPoint(target: Object, propertyKey: string, descriptor: any) {
-  /*console.log("clase", target.constructor.prototype)
+  /*
   console.log("method", propertyKey)
-  console.log("descriptor ", descriptor)*/
-  //Wconsole.log(ar)
+  console.log("descriptor ", descriptor)
+  //Wconsole.log(ar)*/
 
-  descriptor.value = function( ...args: any[]) {
-    console.log("power "+ args[0].power)
-    if(args[0].power < 20) {
-console.log("cant attack with "+ args[0].power)
-return null
-    } else {
-      return descriptor
+  const originalMethod = descriptor.value
+
+  descriptor.value = function(...args: any[]) {
+     if(args[0].power<20) {
+      console.log("cant attack")
+     } else {
+      originalMethod.call(this, ...args)
     }
-
-
+    
   }
-  return descriptor
-
-
-
+  return descriptor;
 }
 
 
@@ -43,5 +39,7 @@ const move2 = {name: 'thunderbolt', power: 90};
 const pikachu = new Pokemon('pikachu', 1);
 pikachu.figth(move);
 pikachu.figth(move2);
+
+//;
 
 //pikachu.figth(move);
