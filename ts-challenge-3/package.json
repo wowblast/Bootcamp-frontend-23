@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "typescript-http-client": "^0.10.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  }
+}
