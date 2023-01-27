@@ -79,7 +79,7 @@ function checkPowerPoint(target, propertyKey, descriptor) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        if (args[0].power < 20) {
+        if (this.ppAvailable < 1) {
             console.log("cant attack");
         }
         else {
@@ -135,8 +135,6 @@ var Trainer = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                console.log("tiene " + this.pokemonsAmount);
-                console.log(this.pokemons);
                 this.pokemons.forEach(function (pokemon) { return __awaiter(_this, void 0, void 0, function () {
                     var _this = this;
                     return __generator(this, function (_a) {
@@ -148,6 +146,7 @@ var Trainer = /** @class */ (function () {
                             console.log(_this.name + ' has ' + data.forms[0].name);
                             var move = { name: data.moves[0].move.name, power: 90 };
                             var newPokemon = new Pokemon(data.forms[0].name, 1);
+                            newPokemon.figth(move);
                             newPokemon.figth(move);
                         });
                         return [2 /*return*/];
@@ -165,3 +164,4 @@ var Trainer = /** @class */ (function () {
 new Trainer('james', 1).getPokemons();
 //;
 //pikachu.figth(move);
+// tsc ./pokemon.ts  --target ES5 --experimentalDecorators  && node .\pokemon.js --experimental-fetch

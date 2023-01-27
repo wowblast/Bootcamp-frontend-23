@@ -7,9 +7,9 @@ function checkPowerPoint(target: Object, propertyKey: string, descriptor: any) {
   console.log("descriptor ", descriptor)
   //Wconsole.log(ar)*/
   const originalMethod = descriptor.value;
-
   descriptor.value = function (...args: any[]) {
-    if (args[0].power < 20) {
+
+    if (this.ppAvailable < 1) {
       console.log("cant attack");
     } else {
       originalMethod.call(this, ...args);
@@ -66,8 +66,6 @@ class Trainer {
     //console.log("tiene "+ pokemonsAmount)
   }
   async getPokemons() {
-    console.log("tiene " + this.pokemonsAmount);
-    console.log(this.pokemons);
     this.pokemons.forEach(async pokemon => {
       console.log('https://pokeapi.co/api/v2/pokemon/'+ pokemon)
       fetch('https://pokeapi.co/api/v2/pokemon/'+ pokemon, {})
@@ -79,6 +77,8 @@ class Trainer {
 
         const newPokemon = new Pokemon(data.forms[0].name, 1);
         newPokemon.figth(move);
+        newPokemon.figth(move);
+
 
     });
       
@@ -94,3 +94,4 @@ new Trainer('james',1).getPokemons();
 //;
 
 //pikachu.figth(move);
+// tsc ./pokemon.ts  --target ES5 --experimentalDecorators  && node .\pokemon.js --experimental-fetch
