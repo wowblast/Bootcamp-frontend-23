@@ -7,15 +7,20 @@ function checkPowerPoint(target: Object, propertyKey: string, descriptor: any) {
   console.log("descriptor ", descriptor)
   //Wconsole.log(ar)*/
   const originalMethod = descriptor.value;
-  descriptor.value = function (...args: any[]) {
+  descriptor.value = function (args: Move) {
 
     if (this.ppAvailable < 1) {
       console.log("cant attack");
     } else {
-      originalMethod.call(this, ...args);
+      originalMethod.call(this, args);
     }
   };
   return descriptor;
+}
+
+interface Move {
+  name: string,
+  power: number
 }
 
 class Pokemon {
@@ -27,19 +32,14 @@ class Pokemon {
   }
 
   @checkPowerPoint
-  figth(move: any) {
+  figth(move: Move) {
     console.log(`${this.name} used ${move?.name}!`);
     this.ppAvailable -= 1;
   }
 }
 
-const move = { name: "thunderbolt", power: 10 };
-const move2 = { name: "thunderbolt", power: 90 };
 
-const pikachu = new Pokemon("pikachu", 1);
-//pikachu.figth(move);
-//pikachu.figth(move2);
-type Consturctor = { new (...args: any[]): any };
+type Constructor = { new (...args: any[]): Trainer };
 
 function getPokemonsId(pokemons: number) {
   let pokemonsIDs: number[] = [];
@@ -47,7 +47,7 @@ function getPokemonsId(pokemons: number) {
     pokemonsIDs.push(Math.round(Math.random() * 1000));
   }
 
-  return <T extends Consturctor>(BaseClass: T) => {
+  return <T extends Constructor>(BaseClass: T) => {
     console.log(BaseClass);
     return class extends BaseClass {
       pokemons = pokemonsIDs;
@@ -59,11 +59,8 @@ function getPokemonsId(pokemons: number) {
 class Trainer {
   name: string;
   pokemons: number[];
-  pokemonsAmount: number = 0;
-  constructor(name: string, pokemonsAmount: number) {
+  constructor(name: string) {
     this.name = name;
-    this.pokemonsAmount = pokemonsAmount;
-    //console.log("tiene "+ pokemonsAmount)
   }
   async getPokemons() {
     this.pokemons.forEach(async pokemon => {
@@ -73,13 +70,11 @@ class Trainer {
     .then((body) => {
       const data = JSON.parse(body)
         console.log(this.name + ' has '+data.forms[0].name);
-        const move = { name: data.moves[0].move.name, power: 90 };
+        const move: Move = { name: data.moves[0].move.name, power: 90 };
 
         const newPokemon = new Pokemon(data.forms[0].name, 1);
         newPokemon.figth(move);
         newPokemon.figth(move);
-
-
     });
       
     });
@@ -89,9 +84,7 @@ class Trainer {
   }
 }
 
-new Trainer('james',1).getPokemons();
+new Trainer('james').getPokemons();
 
-//;
 
-//pikachu.figth(move);
 // tsc ./pokemon.ts  --target ES5 --experimentalDecorators  && node .\pokemon.js --experimental-fetch

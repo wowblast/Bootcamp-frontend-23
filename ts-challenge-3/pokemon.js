@@ -56,15 +56,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = require("node-fetch");
 function checkPowerPoint(target, propertyKey, descriptor) {
@@ -74,16 +65,12 @@ function checkPowerPoint(target, propertyKey, descriptor) {
     console.log("descriptor ", descriptor)
     //Wconsole.log(ar)*/
     var originalMethod = descriptor.value;
-    descriptor.value = function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
+    descriptor.value = function (args) {
         if (this.ppAvailable < 1) {
             console.log("cant attack");
         }
         else {
-            originalMethod.call.apply(originalMethod, __spreadArray([this], args, false));
+            originalMethod.call(this, args);
         }
     };
     return descriptor;
@@ -103,9 +90,6 @@ var Pokemon = /** @class */ (function () {
     ], Pokemon.prototype, "figth", null);
     return Pokemon;
 }());
-var move = { name: "thunderbolt", power: 10 };
-var move2 = { name: "thunderbolt", power: 90 };
-var pikachu = new Pokemon("pikachu", 1);
 function getPokemonsId(pokemons) {
     var pokemonsIDs = [];
     for (var index = 0; index < pokemons; index++) {
@@ -125,11 +109,8 @@ function getPokemonsId(pokemons) {
     };
 }
 var Trainer = /** @class */ (function () {
-    function Trainer(name, pokemonsAmount) {
-        this.pokemonsAmount = 0;
+    function Trainer(name) {
         this.name = name;
-        this.pokemonsAmount = pokemonsAmount;
-        //console.log("tiene "+ pokemonsAmount)
     }
     Trainer.prototype.getPokemons = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -161,7 +142,5 @@ var Trainer = /** @class */ (function () {
     ], Trainer);
     return Trainer;
 }());
-new Trainer('james', 1).getPokemons();
-//;
-//pikachu.figth(move);
+new Trainer('james').getPokemons();
 // tsc ./pokemon.ts  --target ES5 --experimentalDecorators  && node .\pokemon.js --experimental-fetch
