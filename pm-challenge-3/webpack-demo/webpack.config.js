@@ -27,12 +27,15 @@ module.exports = (env, argv) => {
       })
     ],
     devServer: {
-      static: {
-        directory: path.join(__dirname, 'dist'),
-      },
-      compress: true,
-      port: 9000,
+      port: 'auto',
+    
     },
+    /*
+    The webpack-dev-server provides you with a rudimentary web server and the ability to use live reloading
+    
+    STATIC: This option allows configuring options for serving static files from the directory (no necesary  )
+    PORT: DEFAULT (9000 if no necesary)
+    */
   };
   
 };
