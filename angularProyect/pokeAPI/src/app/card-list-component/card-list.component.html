@@ -1,21 +1,6 @@
- 
-<html>
-    <h1>to do list text</h1>
-    <label>Click me: <input type="checkbox" [(ngModel)]="checked"/></label><br/>
-Show when checked:
-<span *ngIf="checked" class="animate-if">
-  This is removed when the checkbox is unchecked.
-</span>
-
-<div class="container" *ngIf="courses.length; else noCourses">
-
-    ... Angular will de-sugar this form of ngIf using the * syntax ...
+<div class="listCards">
+    <card-component *ngFor="let item of pokemonData" [pokemonData]="item"></card-component>
 
 </div>
 
-<ng-template #noCourses>
 
-<h1>No courses available.</h1>
-
-</ng-template>
-</html> 

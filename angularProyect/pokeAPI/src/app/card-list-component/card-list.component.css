@@ -1,0 +1,13 @@
+.listCards {
+    display: flex;
+    
+    justify-items: 'center';
+    
+}
+.example-card {
+    display:'flex';
+
+    max-width: 400px;
+    justify: 'center';
+    
+  }
