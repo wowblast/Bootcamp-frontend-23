@@ -11,13 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { CardComponent } from './card-component/card.component';
+import { NavBarComponent } from './navbar-component/navbar.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     
     CardListComponent,
-    CardComponent
+    CardComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { CardComponent } from './card-component/card.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [CardListService],
   bootstrap: [AppComponent]

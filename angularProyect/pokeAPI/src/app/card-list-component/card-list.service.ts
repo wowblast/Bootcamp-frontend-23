@@ -15,4 +15,8 @@ export class CardListService{
         return this.http.get<any>(urls)
     }
 
+    getGeneration(url: string): Observable<any> {
+        return this.http.get<any>(url)
+    }
+
 }

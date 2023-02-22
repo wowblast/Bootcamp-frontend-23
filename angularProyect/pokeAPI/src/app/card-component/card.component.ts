@@ -14,8 +14,6 @@ export class CardComponent implements OnInit {
     ngOnInit(): void {
         this.name  =this.pokemonData?.name
         this.img  =this.pokemonData?.img
-
-        
     }
 
 }

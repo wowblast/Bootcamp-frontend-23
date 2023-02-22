@@ -1,7 +1,15 @@
 .card-size {
-    display:'flex';
+  display: "flex";
+  max-width: 400px;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+}
 
-    max-width: 400px;
-    justify: 'center';
-    
-  }
+.card-size img {
+  justify-content: center;
+}
+
+.imgtest {
+  justify-content: center;
+}
