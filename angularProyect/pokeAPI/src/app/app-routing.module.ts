@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { CardListComponent } from './card-list-component/card-list.componet';
+const routes: Routes = [
+  { path: 'pokemons', component: CardListComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

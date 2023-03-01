@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { generations, generationType } from '../config/generationTypes';
 import { CardListService } from './card-list.service';
+import { pokemonColorMap } from '../config/pokemonColorHash';
 @Component({
   selector: 'card-list-component',
   templateUrl: './card-list.component.html',
@@ -24,16 +25,15 @@ export class CardListComponent implements OnInit {
       this.results.forEach((pokemon: any) => {
         this.cardListService
           .getPokemon(pokemon.url)
-          .subscribe(async (pokemonInfo) => {
-            console.log(
-              pokemonInfo.name + ' ' + pokemonInfo.sprites.back_default
-            );
+          .subscribe(async (pokemonInfo) => {           
             this.pokemonData.push({
               name: pokemonInfo.name,
               img: pokemonInfo.sprites.back_default,
               /*generation: await this.setPokemonGeneration(
                 pokemonInfo.species.url)*/
-              generation: Math.random() * 10
+              generation: Math.random() * 10,
+              id: pokemonInfo.id,
+              backgroundColor: pokemonColorMap[pokemonInfo.id]
               
             });
            // console.log( this.pokemonData)

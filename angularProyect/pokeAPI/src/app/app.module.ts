@@ -13,7 +13,10 @@ import {MatCardModule} from '@angular/material/card';
 import { CardComponent } from './card-component/card.component';
 import { NavBarComponent } from './navbar-component/navbar.component';
 import {MatButtonModule} from '@angular/material/button';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,12 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule
+
   ],
   providers: [CardListService],
   bootstrap: [AppComponent]

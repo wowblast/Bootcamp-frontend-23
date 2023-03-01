@@ -10,3 +10,9 @@
     height: 56px;
     font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
 }
+
+.searchBar {
+    display:flex;
+    justify-content: center;
+    
+}
