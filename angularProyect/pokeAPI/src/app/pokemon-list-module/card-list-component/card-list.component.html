@@ -1,6 +1,6 @@
 <navbar-component></navbar-component>
-
-<div class="example-button-row">
+<div>
+  <div class="example-button-row">
     <button mat-raised-button color="primary" (click)="sortPokemonsByGeneration()">Primary</button>
    
   </div>
@@ -8,5 +8,7 @@
     <card-component *ngFor="let item of pokemonData" [pokemonData]="item"></card-component>
 
 </div>
+</div>
+
 
 

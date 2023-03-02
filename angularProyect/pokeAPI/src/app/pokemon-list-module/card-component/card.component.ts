@@ -11,9 +11,12 @@ export class CardComponent implements OnInit {
     
     name: string = 'default name';
     img: string ='';
+    generation: string = ''
     ngOnInit(): void {
         this.name  =this.pokemonData?.name
         this.img  =this.pokemonData?.img
+        this.generation = 'generation: '+ this.pokemonData?.generation
+
     }
 
 }
