@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
-import {config} from '../../config/config';
+import {config} from '../../shared/config/config';
 @Injectable()
 export class CardListService{
 

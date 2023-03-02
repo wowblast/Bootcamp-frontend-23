@@ -9,18 +9,17 @@ import { CardComponent } from './pokemon-list-module/card-component/card.compone
 import { NavBarComponent } from './pokemon-list-module/navbar-component/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { ProfileViewModule } from './pokemon-profile-module/profie-view.module';
+import { PokemonListModule } from './pokemon-list-module/pokemon-list.module';
 @NgModule({
   declarations: [
-    AppComponent,
-    CardListComponent,
-    CardComponent,
-    NavBarComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
     SharedModule,
     BrowserModule,
-    ProfileViewModule
+    ProfileViewModule,
+    PokemonListModule
   ],
   providers: [CardListService],
   bootstrap: [AppComponent]

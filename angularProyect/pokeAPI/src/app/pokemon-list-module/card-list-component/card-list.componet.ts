@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { generations, generationType } from '../../config/generationTypes';
+import { generations, generationType } from '../../shared/config/generationTypes';
 import { CardListService } from './card-list.service';
-import { pokemonColorMap } from '../../config/pokemonColorHash';
+import { pokemonColorMap } from '../../shared/config/pokemonColorHash';
 @Component({
   selector: 'card-list-component',
   templateUrl: './card-list.component.html',
