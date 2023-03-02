@@ -11,3 +11,8 @@
 .imgtest {
   justify-content: center;
 }
+.parent {
+display: flex;
+  justify-content: center;
+   cursor: pointer;
+}

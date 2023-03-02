@@ -1,23 +1,7 @@
 .listCards {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    justify-items: stretch;
-    justify-content: stretch;
-    align-items: stretch;
-    
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-column-gap: 1rem; 
+  grid-row-gap: 1rem; 
 }
 
-.board {
-    display: grid;
-    grid-template-columns: 10% 10% 50% 10% 10%;
-    grid-template-rows: 16% 16% 16% 16% 16% 16%;
-    justify-items: stretch;
-    justify-content: stretch;
-    align-items: stretch;
-  }
-.example-card {
-    display:'flex';
-
-    max-width: 400px;
-    
-  }

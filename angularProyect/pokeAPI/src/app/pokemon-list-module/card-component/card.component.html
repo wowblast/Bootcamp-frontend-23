@@ -1,5 +1,6 @@
-<mat-card
-  class="card-size"
+<div >
+<mat-card  routerLink = 'profile'
+ class="parent"
   [ngStyle]="{
     'background-color': pokemonData.backgroundColor
       ? pokemonData.backgroundColor
@@ -11,3 +12,4 @@
   </mat-card-header>
   <img mat-card-image class="imgtest" src="{{ img }}" width="200" />
 </mat-card>
+</div>

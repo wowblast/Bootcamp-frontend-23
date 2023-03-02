@@ -5,7 +5,7 @@ import { ProfileViewComponent } from './profile-view-component/profile-view.comp
 
 const routes: Routes = [
     {
-        path: 'profile/:id',
+        path: 'pokemons/profile',
         component: ProfileViewComponent
     }
 ];

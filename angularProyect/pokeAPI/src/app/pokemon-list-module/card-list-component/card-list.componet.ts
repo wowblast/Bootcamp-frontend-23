@@ -29,9 +29,9 @@ export class CardListComponent implements OnInit {
             this.pokemonData.push({
               name: pokemonInfo.name,
               img: pokemonInfo.sprites.back_default,
-              /*generation: await this.setPokemonGeneration(
-                pokemonInfo.species.url)*/
-              generation: Math.random() * 10,
+              generation: await this.setPokemonGeneration(
+                pokemonInfo.species.url),
+              //generation: Math.random() * 10,
               id: pokemonInfo.id,
               backgroundColor: pokemonColorMap[pokemonInfo.id]
               
