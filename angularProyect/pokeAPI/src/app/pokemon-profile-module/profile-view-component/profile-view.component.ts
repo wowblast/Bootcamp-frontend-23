@@ -13,6 +13,8 @@ export class ProfileViewComponent implements OnInit {
   nextPokemon: string = '';
   id = 1;
   isPrevious = false;
+  name = ''
+  evolutionsImages: {evolutionLink: string, evolutionName: string}[] = [] 
   constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     this.setProfileData();
@@ -39,7 +41,8 @@ export class ProfileViewComponent implements OnInit {
 
       this.previousPokemon = '###' + (this.id - 1);
       this.nextPokemon = '###' + (this.id + 1);
-
+      this.name = profile.name
+      this.evolutionsImages = profile.evolutions
       if (this.id - 1 > 0) this.isPrevious = true;
     });
   }

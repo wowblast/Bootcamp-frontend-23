@@ -1,6 +1,25 @@
 <div class="profile-parent">
-  <div>
-    <h1>Profileeeeeeeeeeeeeeee</h1>
+  <div class="left-profile">
+    <div class="left-profile"></div>
+    <button mat-icon-button routerLink="../..">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1 class="id-display">#{{ id }}</h1>
+    <p class="center-title">{{ name }}</p>
+
+    <mat-tab-group class="tabs" disableRipple>
+      <mat-tab label="View 1">View 1 Content</mat-tab>
+      <mat-tab label="View 2">View 2 Content</mat-tab>
+      <mat-tab label="View 3"
+        ><div class="image-array">
+          <div class="tabs"></div>
+          <div *ngFor="let image of evolutionsImages">
+            <img [src]="image?.evolutionLink" alt="Image 1" />
+            <p>{{ image.evolutionName }}</p>
+          </div>
+        </div></mat-tab
+      >
+    </mat-tab-group>
   </div>
   <div
     [ngStyle]="{
@@ -16,10 +35,17 @@
         'background-color': backgroundColor ? backgroundColor : 'white'
       }"
     >
-      <button mat-raised-button color="warn" *ngIf=isPrevious  (click)="loadNextPokemon(-1)">{{previousPokemon}}</button>
-      <button mat-raised-button color="accent" (click)="loadNextPokemon(1)">{{nextPokemon}}</button>
-
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="isPrevious"
+        (click)="loadNextPokemon(-1)"
+      >
+        {{ previousPokemon }}
+      </button>
+      <button mat-raised-button color="accent" (click)="loadNextPokemon(1)">
+        {{ nextPokemon }}
+      </button>
     </div>
   </div>
 </div>
-
