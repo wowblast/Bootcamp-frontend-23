@@ -39,7 +39,6 @@ export class CardListComponent implements OnInit {
 
   async loadData() {
     this.data = this.route.snapshot.data?.['message'];
-    console.log(this.totalData)
       this.cardListService.getPokemonList(this.totalData > 0  ? ('?limit=20&offset='+this.totalData): undefined).subscribe((data) => {
         this.results = data.results;
         this.results.forEach((pokemon: any) => {
@@ -57,10 +56,8 @@ export class CardListComponent implements OnInit {
               });
             });
         });
-        console.log(this.pokemonData)
         this.pokemonDisplayedData = this.pokemonData
         this.isNewDataLoaded = true
-        console.log("readyt")
         this.totalData += this.results.length
       });
   }
@@ -70,7 +67,6 @@ export class CardListComponent implements OnInit {
       this.cardListService.getGeneration(speciesUrl)
     );
     const generation: string = speciesData.generation.name;
-    console.log('generation ', generation);
     const test = generations;
     return test[generation as generationType];
   }
@@ -85,7 +81,6 @@ export class CardListComponent implements OnInit {
     const docHeight = document.documentElement.scrollHeight;
     const scrollBottom = docHeight - (scrollPos + windowHeight);
     if (scrollBottom < 100) {
-      console.log('near end');
       if(this.isNewDataLoaded && this.searchData == '') {
         this.isNewDataLoaded =false;
         this.loadData();
@@ -94,7 +89,6 @@ export class CardListComponent implements OnInit {
     }
   }
   receiveSearchData($event: string) {
-      console.log("recivido", $event);
       this.searchData = $event
 
       if(this.searchData == '') {
@@ -108,7 +102,7 @@ export class CardListComponent implements OnInit {
   }
 
   sortPokemonsByGeneration() {
-    this.pokemonData = this.pokemonData.sort(
+    this.pokemonDisplayedData = this.pokemonDisplayedData.sort(
       (a: any, b: any) => a.generation - b.generation
     );
   }
