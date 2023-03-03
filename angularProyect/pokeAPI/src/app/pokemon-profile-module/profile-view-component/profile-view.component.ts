@@ -20,7 +20,7 @@ export class ProfileViewComponent implements OnInit {
   weight = ''
   specie = ''
   ability = ''
-
+  stats: any= []
   evolutionsImages: {evolutionLink: string, evolutionName: string}[] = []
   typesImages: string[]= []
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -57,6 +57,7 @@ export class ProfileViewComponent implements OnInit {
       this.weight = profile.weight
       this.specie = profile.species.name
       this.ability = profile.abilities[0].ability.name
+      this.stats = profile.stats
       const listOfTypes = profile?.types|| []
       listOfTypes.forEach((element:any) => {
         const link = imageType[element.type.name as imagesNameType] || ''
