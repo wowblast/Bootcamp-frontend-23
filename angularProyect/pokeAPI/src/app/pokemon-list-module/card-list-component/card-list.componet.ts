@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { generations, generationType } from '../../shared/config/generationTypes';
-import { CardListService } from './card-list.service';
+import { CardListService } from '../../services/pokemon-list-services/card-list.service';
 import { pokemonColorMap } from '../../shared/config/pokemonColorHash';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonProfile } from 'src/app/shared/interfaces/pokemonProfile';
 @Component({
   selector: 'card-list-component',
   templateUrl: './card-list.component.html',
@@ -16,16 +18,20 @@ export class CardListComponent implements OnInit {
     img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
   };
   results: any;
-
-  constructor(public cardListService: CardListService) {}
+  data: any;
+  
+  constructor(public cardListService: CardListService, private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.data = this.route.snapshot.data?.['message'];
+    console.log(this.route.snapshot.data?.['message'])
+    //this.data.subscribe((response: any) => console.log("resolver", response))
     this.cardListService.getPokemonList().subscribe((data) => {
       this.results = data.results;
-
+console.log("results")
       this.results.forEach((pokemon: any) => {
         this.cardListService
           .getPokemon(pokemon.url)
-          .subscribe(async (pokemonInfo) => {           
+          .subscribe(async (pokemonInfo: PokemonProfile) => {           
             this.pokemonData.push({
               name: pokemonInfo.name,
               img: pokemonInfo.sprites.back_default,

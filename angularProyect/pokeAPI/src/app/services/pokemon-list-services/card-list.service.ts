@@ -7,8 +7,8 @@ export class CardListService{
 
     constructor(private http: HttpClient) { }
 
-    getPokemonList(): Observable<any> {
-        return this.http.get<any>(config.baseUrl+config.pokemons)
+    getPokemonList(pokemonLength?:string): Observable<any> {
+        return this.http.get<any>(config.baseUrl+config.pokemons+(pokemonLength? pokemonLength: ''))
     }
 
     getPokemon(urls: string): Observable<any> {
