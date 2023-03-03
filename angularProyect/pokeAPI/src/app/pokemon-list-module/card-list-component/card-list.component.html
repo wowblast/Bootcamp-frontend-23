@@ -10,10 +10,13 @@
     <button mat-raised-button color="warn" (click)="sortPokemonsByGeneration()">Sort by generation</button>
    
   </div>
-<div class="listCards">
-    <card-component *ngFor="let item of pokemonData" [pokemonData]="item"></card-component>
+ 
+    <div class="listCards">
+      <card-component *ngFor="let item of pokemonData" [pokemonData]="item"></card-component>
+  
+    </div>
 
-</div>
+
 </div>
 
 
