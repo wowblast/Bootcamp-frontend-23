@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 export const modules = [
     CommonModule,
@@ -30,7 +31,8 @@ export const modules = [
     MatIconModule,
     MatSelectModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ScrollingModule
   ];
   
   

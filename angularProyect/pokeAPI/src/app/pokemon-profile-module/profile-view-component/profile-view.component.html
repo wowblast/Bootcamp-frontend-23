@@ -10,20 +10,7 @@
       <img *ngFor="let image of typesImages" [src]="image" />
     </div>
     <mat-tab-group class="tabs" disableRipple>
-      <mat-tab label="View 1"><mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Basic Stats:</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-
-          <p *ngFor="let stat of stats" >{{ stat?.stat.name}}: {{ stat?.base_stat || 'd' }}
-            <mat-progress-bar mode="determinate" [value]="stat.base_stat"></mat-progress-bar>
-
-          </p>
-        
-        </mat-card-content>
-      </mat-card></mat-tab>
-      <mat-tab label="View 2"
+      <mat-tab label="Pokedex data"
         ><mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>About this pokemon:</mat-card-title>
@@ -40,7 +27,24 @@
           </mat-card-content>
         </mat-card></mat-tab
       >
-      <mat-tab label="View 3">
+      <mat-tab label="Stats"
+        ><mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Basic Stats:</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p *ngFor="let stat of stats">
+              {{ stat?.stat.name }}: {{ stat?.base_stat || "d" }}
+              <mat-progress-bar
+                mode="determinate"
+                [value]="stat.base_stat"
+              ></mat-progress-bar>
+            </p>
+          </mat-card-content> </mat-card
+      ></mat-tab>
+
+      >
+      <mat-tab label="Evolution">
         <div class="image-array">
           <div class="tabs"></div>
           <div *ngFor="let image of evolutionsImages">

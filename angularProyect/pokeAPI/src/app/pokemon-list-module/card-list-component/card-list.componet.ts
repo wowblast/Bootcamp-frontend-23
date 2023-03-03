@@ -23,11 +23,8 @@ export class CardListComponent implements OnInit {
   constructor(public cardListService: CardListService, private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.data = this.route.snapshot.data?.['message'];
-    console.log(this.route.snapshot.data?.['message'])
-    //this.data.subscribe((response: any) => console.log("resolver", response))
     this.cardListService.getPokemonList().subscribe((data) => {
       this.results = data.results;
-console.log("results")
       this.results.forEach((pokemon: any) => {
         this.cardListService
           .getPokemon(pokemon.url)
@@ -37,12 +34,10 @@ console.log("results")
               img: pokemonInfo.sprites.back_default,
               generation: await this.setPokemonGeneration(
                 pokemonInfo.species.url),
-              //generation: Math.random() * 10,
               id: pokemonInfo.id,
               backgroundColor: pokemonColorMap[pokemonInfo.id]
               
             });
-           // console.log( this.pokemonData)
           });
       });
     });

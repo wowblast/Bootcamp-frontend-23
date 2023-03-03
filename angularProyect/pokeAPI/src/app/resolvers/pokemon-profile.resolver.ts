@@ -16,7 +16,6 @@ export class PokemonProfileResolver
 {
   constructor(public pokemonProfileService: PokemonService) {}
   resolve(route: ActivatedRouteSnapshot): Observable<PokemonProfile> {
-    console.log('profile resolver');
     return this.pokemonProfileService
       .getPokemonById(route.paramMap.get('id') || '1')
       .pipe(
@@ -43,7 +42,6 @@ export class PokemonProfileResolver
     const regex = /\d+/g;
     const match = string.match(regex);
     const number = match ? parseInt(match[1]) : null;
-    console.log();
     pokemon.evolutions?.push({
       evolutionLink: config.imgUrl + number+'.png',
       evolutionName: evolution.species.name,
