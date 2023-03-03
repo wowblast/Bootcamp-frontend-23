@@ -8,7 +8,7 @@ import { PokemonService } from '../services/pokemon-profile-services/pokemon.ser
 @Injectable({
   providedIn: 'root',
 })
-export class PokemonProfileResolver implements Resolve<Observable<any>> {
+export class PokemonProfileResolveddr implements Resolve<Observable<any>> {
   constructor(public pokemonProfileService: PokemonService) {}
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.pokemonProfileService.getPokemonById(
