@@ -6,7 +6,9 @@
     </button>
     <h1 class="id-display">#{{ id }}</h1>
     <p class="center-title">{{ name }}</p>
-
+    <div class="types-array">
+      <img *ngFor="let image of typesImages" [src]="image" />
+    </div>
     <mat-tab-group class="tabs" disableRipple>
       <mat-tab label="View 1">View 1 Content</mat-tab>
       <mat-tab label="View 2">View 2 Content</mat-tab>
@@ -27,7 +29,12 @@
     }"
   >
     <div style="display: flex; justify-content: center">
-      <img src="{{ pokemonImage }}" width="400" height="200" />
+      <img
+        class="right-imge"
+        src="{{ pokemonImage }}"
+        width="400"
+        height="200"
+      />
     </div>
     <div
       class="button-container"

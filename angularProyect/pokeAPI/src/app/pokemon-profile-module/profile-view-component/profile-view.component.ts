@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pokemonColorMap } from 'src/app/shared/config/pokemonColorHash';
+import { imagesNameType, imageType } from '../../shared/utils/pokemonTypeImage';
 @Component({
   selector: 'profile-view-component',
   templateUrl: './profile-view.component.html',
@@ -14,8 +15,10 @@ export class ProfileViewComponent implements OnInit {
   id = 1;
   isPrevious = false;
   name = ''
-  evolutionsImages: {evolutionLink: string, evolutionName: string}[] = [] 
+  evolutionsImages: {evolutionLink: string, evolutionName: string}[] = []
+  typesImages: string[]= []
   constructor(private route: ActivatedRoute, private router: Router) {}
+  
   ngOnInit(): void {
     this.setProfileData();
   }
@@ -43,7 +46,16 @@ export class ProfileViewComponent implements OnInit {
       this.nextPokemon = '###' + (this.id + 1);
       this.name = profile.name
       this.evolutionsImages = profile.evolutions
+      this.typesImages = []
+      const listOfTypes = profile?.types|| []
+      listOfTypes.forEach((element:any) => {
+        const link = imageType[element.type.name as imagesNameType] || ''
+        this.typesImages.push(link) 
+        
+      });
+   
       if (this.id - 1 > 0) this.isPrevious = true;
     });
   }
 }
+ 
