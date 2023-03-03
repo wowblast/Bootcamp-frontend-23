@@ -1,10 +1,4 @@
-<div class="searchBar">
-  <mat-form-field appearance="outline">
-    <mat-label>Search pokemons</mat-label>
-    <input matInput  />
-    <mat-icon matPrefix>search</mat-icon>
-  </mat-form-field>
-</div>
+<search-component  (searchInfo)="receiveSearchData($event)"></search-component>
 <div>
   <div class="example-button-row">
     <button mat-raised-button color="warn" (click)="sortPokemonsByGeneration()">Sort by generation</button>
@@ -12,7 +6,7 @@
   </div>
  
     <div class="listCards">
-      <card-component *ngFor="let item of pokemonData" [pokemonData]="item"></card-component>
+      <card-component *ngFor="let item of pokemonDisplayedData" [pokemonData]="item"></card-component>
   
     </div>
 

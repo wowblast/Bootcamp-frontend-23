@@ -1,0 +1,7 @@
+<div class="searchBar">
+    <mat-form-field appearance="outline">
+      <mat-label>Search pokemons</mat-label>
+      <input matInput  [(ngModel)]="searchData" (ngModelChange)="onNameChange($event)"  />
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+  </div>

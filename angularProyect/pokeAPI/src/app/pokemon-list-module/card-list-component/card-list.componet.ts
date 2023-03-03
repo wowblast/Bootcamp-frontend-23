@@ -16,6 +16,8 @@ import { PokemonProfile } from 'src/app/shared/interfaces/pokemonProfile';
 })
 export class CardListComponent implements OnInit {
   pokemonData: any = [];
+  pokemonDisplayedData: any = []
+  pokemonFilteredData: any = []
   datatest = {
     name: 'test name',
     img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
@@ -25,6 +27,7 @@ export class CardListComponent implements OnInit {
   offSetPokemon: number = 20;
   totalData: number = 0;
   isNewDataLoaded = true
+  searchData: string = ''
 
   constructor(
     public cardListService: CardListService,
@@ -54,6 +57,8 @@ export class CardListComponent implements OnInit {
               });
             });
         });
+        console.log(this.pokemonData)
+        this.pokemonDisplayedData = this.pokemonData
         this.isNewDataLoaded = true
         console.log("readyt")
         this.totalData += this.results.length
@@ -81,12 +86,25 @@ export class CardListComponent implements OnInit {
     const scrollBottom = docHeight - (scrollPos + windowHeight);
     if (scrollBottom < 100) {
       console.log('near end');
-      if(this.isNewDataLoaded) {
+      if(this.isNewDataLoaded && this.searchData == '') {
         this.isNewDataLoaded =false;
         this.loadData();
 
       }
     }
+  }
+  receiveSearchData($event: string) {
+      console.log("recivido", $event);
+      this.searchData = $event
+
+      if(this.searchData == '') {
+        this.pokemonDisplayedData = this.pokemonData
+      }
+      this.pokemonDisplayedData = this.pokemonData.filter((pokemon: any) => {
+        return pokemon.id.toString().includes(this.searchData) || pokemon.name.includes(this.searchData) || pokemon.generation.toString().includes(this.searchData)
+      })
+
+    
   }
 
   sortPokemonsByGeneration() {

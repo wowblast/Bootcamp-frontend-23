@@ -6,9 +6,5 @@
   grid-column-gap: 1rem; 
   grid-row-gap: 1rem; 
 }
-.searchBar {
-  display:flex;
-  justify-content: center;
-  
-}
+
 
