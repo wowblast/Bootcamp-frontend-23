@@ -11,9 +11,25 @@
     </div>
     <mat-tab-group class="tabs" disableRipple>
       <mat-tab label="View 1">View 1 Content</mat-tab>
-      <mat-tab label="View 2">View 2 Content</mat-tab>
-      <mat-tab label="View 3"
-        ><div class="image-array">
+      <mat-tab label="View 2"
+        ><mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>About this pokemon:</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ description }}
+            </p>
+
+            <p>Height: {{ height }}</p>
+            <p>Weight: {{ weight }}</p>
+            <p>Specie: {{ specie }}</p>
+            <p>Ability: {{ ability }}</p>
+          </mat-card-content>
+        </mat-card></mat-tab
+      >
+      <mat-tab label="View 3">
+        <div class="image-array">
           <div class="tabs"></div>
           <div *ngFor="let image of evolutionsImages">
             <img [src]="image?.evolutionLink" alt="Image 1" />

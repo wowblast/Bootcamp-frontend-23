@@ -24,6 +24,8 @@ export class PokemonProfileResolver
           const specie: PokemonSpecies = await firstValueFrom(
             this.pokemonProfileService.getPokemonSpecies(pokemon.species.url)
           );
+          pokemon.description =  specie.flavor_text_entries[0].flavor_text
+
           const evolution: PokemonEvolution = await firstValueFrom(
             this.pokemonProfileService.getPokemonEvolutionChain(
               specie.evolution_chain.url

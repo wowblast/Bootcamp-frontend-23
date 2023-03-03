@@ -11,5 +11,6 @@ export interface PokemonProfile {
     evolutions?: {
         evolutionName: string,
         evolutionLink: string
-    }[]
+    }[],
+    description?: string
 }

@@ -15,6 +15,12 @@ export class ProfileViewComponent implements OnInit {
   id = 1;
   isPrevious = false;
   name = ''
+  description = ''
+  height = ''
+  weight = ''
+  specie = ''
+  ability = ''
+
   evolutionsImages: {evolutionLink: string, evolutionName: string}[] = []
   typesImages: string[]= []
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -37,7 +43,6 @@ export class ProfileViewComponent implements OnInit {
       console.log('suscribe', profile);
       this.backgroundColor =
         pokemonColorMap[profile['id']];
-      //console.log('prfile', this.route.snapshot.data?.['profile'].id);
       this.pokemonImage =
       profile['sprites'].back_default;
       this.id = parseInt(profile['id']);
@@ -47,6 +52,11 @@ export class ProfileViewComponent implements OnInit {
       this.name = profile.name
       this.evolutionsImages = profile.evolutions
       this.typesImages = []
+      this.description = profile.description
+      this.height = profile.height
+      this.weight = profile.weight
+      this.specie = profile.species.name
+      this.ability = profile.abilities[0].ability.name
       const listOfTypes = profile?.types|| []
       listOfTypes.forEach((element:any) => {
         const link = imageType[element.type.name as imagesNameType] || ''
