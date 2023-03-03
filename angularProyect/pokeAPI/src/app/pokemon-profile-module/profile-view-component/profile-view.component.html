@@ -1,8 +1,25 @@
 <div class="profile-parent">
-<div>
+  <div>
     <h1>Profileeeeeeeeeeeeeeee</h1>
-</div>    
+  </div>
+  <div
+    [ngStyle]="{
+      'background-color': backgroundColor ? backgroundColor : 'white'
+    }"
+  >
+    <div style="display: flex; justify-content: center">
+      <img src="{{ pokemonImage }}" width="400" height="200" />
+    </div>
+    <div
+      class="button-container"
+      [ngStyle]="{
+        'background-color': backgroundColor ? backgroundColor : 'white'
+      }"
+    >
+      <button mat-raised-button color="warn" *ngIf=isPrevious  (click)="loadNextPokemon(-1)">{{previousPokemon}}</button>
+      <button mat-raised-button color="accent" (click)="loadNextPokemon(1)">{{nextPokemon}}</button>
 
-    <h1>Profileeeeeeeeeeeeeeee</h1>
-
+    </div>
+  </div>
 </div>
+
